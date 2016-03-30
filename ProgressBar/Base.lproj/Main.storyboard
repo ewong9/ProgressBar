@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProgressBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="jts-eP-wuD">
+                                <rect key="frame" x="225" y="299" width="150" height="3"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="mfL-vO-UpU"/>
+                                </constraints>
+                                <color key="progressTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9Ar-KP-xTg">
+                                <rect key="frame" x="253" y="327" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="hNI-rV-gNM"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="p8x-lY-iVe">
+                                <rect key="frame" x="253" y="376" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepper2Value:" destination="BYZ-38-t0r" eventType="valueChanged" id="ETL-Tw-g5n"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-Ce-gGl">
+                                <rect key="frame" x="253" y="422" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepper3Value:" destination="BYZ-38-t0r" eventType="valueChanged" id="zVm-n7-oY3"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 out of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-Jc-e5V">
+                                <rect key="frame" x="259" y="261" width="82" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="TKr-LZ-ez5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Hh-Ce-gGl" firstAttribute="leading" secondItem="p8x-lY-iVe" secondAttribute="leading" id="01y-pg-zDi"/>
+                            <constraint firstItem="7AJ-Jc-e5V" firstAttribute="centerX" secondItem="jts-eP-wuD" secondAttribute="centerX" id="17d-vx-gi5"/>
+                            <constraint firstItem="p8x-lY-iVe" firstAttribute="leading" secondItem="9Ar-KP-xTg" secondAttribute="leading" id="1Z3-Gn-rM9"/>
+                            <constraint firstItem="9Ar-KP-xTg" firstAttribute="top" secondItem="jts-eP-wuD" secondAttribute="bottom" constant="26" id="BbS-zM-Zfu"/>
+                            <constraint firstItem="9Ar-KP-xTg" firstAttribute="centerX" secondItem="jts-eP-wuD" secondAttribute="centerX" id="Guq-GK-acR"/>
+                            <constraint firstItem="jts-eP-wuD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OFK-9Z-tmo"/>
+                            <constraint firstItem="8Hh-Ce-gGl" firstAttribute="top" secondItem="p8x-lY-iVe" secondAttribute="bottom" constant="17" id="Vxd-eZ-MdV"/>
+                            <constraint firstItem="p8x-lY-iVe" firstAttribute="top" secondItem="9Ar-KP-xTg" secondAttribute="bottom" constant="20" id="XkK-HQ-lxq"/>
+                            <constraint firstItem="jts-eP-wuD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pCl-7f-cwP"/>
+                            <constraint firstItem="jts-eP-wuD" firstAttribute="top" secondItem="7AJ-Jc-e5V" secondAttribute="bottom" constant="17" id="pxV-2G-ycv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressBar" destination="jts-eP-wuD" id="cdN-Er-JNC"/>
+                        <outlet property="progressLabel" destination="7AJ-Jc-e5V" id="kli-I6-a7R"/>
+                        <outlet property="stepper" destination="9Ar-KP-xTg" id="o3E-ox-Ogv"/>
+                        <outlet property="stepper2" destination="p8x-lY-iVe" id="jZZ-Kf-nTh"/>
+                        <outlet property="stepper3" destination="8Hh-Ce-gGl" id="iuh-eD-39J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="387" y="315"/>
         </scene>
     </scenes>
 </document>
